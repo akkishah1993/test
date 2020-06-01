@@ -1,0 +1,34 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8765
+spring:
+  application:
+    name: api-gateway
+# Local mongodb configuration.
+  data:
+    mongodb:
+      host: localhost      
+      port: 27017
+      database: spring_demo
+    
+zuul:
+  sensitiveHeaders: Cookie,Set-Cookie
+  routes:    
+    oauth-service:
+      path: /oauth-service/**
+      serviceId: oauth-service
+      
+    user-service:
+      path: /user-service/**
+      serviceId: user-service
+#    serviceB:
+#      path: /tasks-api/**
+#      serviceId: task-service 
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: rahul
