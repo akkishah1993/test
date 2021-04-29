@@ -35,4 +35,17 @@ public class PreFilter extends ZuulFilter {
                  request.getRequestURL().toString()));
         return null;
     }
+    
+    public int getData() {
+    	
+    	Integer myInt  = null;
+    	int result = myInt * 10;
+    	return result;
+    	
+    }
+    
+    
+    
+    
+    
 }
